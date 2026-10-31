@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Cover Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl">
+        <h1 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            AI Voice Cover Studio
+        </h1>
+        <p class="text-slate-400 text-center text-sm mb-6">Qo'shiqni yuklang va o'zingiz xohlagan ovozga o'zgartiring</p>
+
+        <div class="space-y-4">
+            <!-- Audio yuklash -->
+            <div>
+                <label class="block text-sm font-medium text-slate-300 mb-1">Qo'shiq faylini yuklang (MP3/WAV)</label>
+                <input type="file" id="audioFile" accept="audio/*" class="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-500 cursor-pointer border border-slate-700 rounded-xl bg-slate-950">
+            </div>
+
+            <!-- Ovoz modelini tanlash -->
+            <div>
+                <label class="block text-sm font-medium text-slate-300 mb-1">Ovoz modelini tanlang</label>
+                <select id="voiceModel" class="w-full p-3 bg-slate-950 border border-slate-700 rounded-xl text-slate-200 focus:outline-none focus:border-purple-500">
+                    <option value="voice_1">Male Vocal Model (Erkak ovozi)</option>
+                    <option value="voice_2">Female Vocal Model (Ayol ovozi)</option>
+                    <option value="custom">O'zimning ovozim (Custom RVC)</option>
+                </select>
+            </div>
+
+            <!-- Jarayonni boshlash tugmasi -->
+            <button onclick="startConversion()" class="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 font-semibold rounded-xl hover:opacity-90 transition shadow-lg shadow-purple-900/30">
+                Ovozni Almashtirish (Generate)
+            </button>
+        </div>
+
+        <!-- Natija va holat -->
+        <div id="statusArea" class="mt-6 hidden text-center">
+            <p id="statusText" class="text-sm text-purple-400 animate-pulse">Audio qayta ishlanmoqda, iltimos kuting...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
